@@ -94,6 +94,11 @@ public class TennisScoreCalculator
             return "Deuce";
         }
 
+        if (player1Points == 4 && player2Points == 0)
+        {
+            return "Win for Player 1";
+        }
+
         return string.Empty;
     }
 }
