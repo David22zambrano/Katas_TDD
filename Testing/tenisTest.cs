@@ -42,6 +42,11 @@ public class TennisScoreCalculator
             return "Fifteen-Love";
         }
 
+        if (player1Points == 0 && player2Points == 1)
+        {
+            return "Love-Fifteen";
+        }
+
         return string.Empty;
     }
 }
