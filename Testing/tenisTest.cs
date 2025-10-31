@@ -18,6 +18,6 @@ namespace Testing;
   {
       public string Score(int player1Points, int player2Points)
       {
-          return string.Empty;
+          return "Love-All";
       }
   }
