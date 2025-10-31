@@ -68,6 +68,11 @@ public class TennisScoreCalculator
             return "Thirty-Fifteen";
         }
 
+        if (player1Points == 3 && player2Points == 0)
+        {
+            return "Forty-Love";
+        }
+
         return string.Empty;
     }
 }
