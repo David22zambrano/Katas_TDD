@@ -11,7 +11,13 @@ namespace Testing;
           Assert.Equal("Love-All", result);
       }
       
-
+      [Fact]
+      public void Score_Should_Return_FifteenLove_When_1_0()
+      {
+          var calculator = new TennisScoreCalculator();
+          var result = calculator.Score(1, 0);
+          Assert.Equal("Fifteen-Love", result);
+      }
   }
 
   public class TennisScoreCalculator
