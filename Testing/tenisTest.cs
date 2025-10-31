@@ -34,6 +34,14 @@ public class TennisScoreCalculatorTests
         var result = calculator.Score(2, 1);
         Assert.Equal("Thirty-Fifteen", result);
     }
+
+    [Fact]
+    public void Score_Should_Return_FortyLove_When_3_0()
+    {
+        var calculator = new TennisScoreCalculator();
+        var result = calculator.Score(3, 0);
+        Assert.Equal("Forty-Love", result);
+    }
 }
 
 public class TennisScoreCalculator
