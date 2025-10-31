@@ -50,6 +50,14 @@ public class TennisScoreCalculatorTests
         var result = calculator.Score(3, 3);
         Assert.Equal("Deuce", result);
     }
+    
+    [Fact]
+    public void Score_Should_Return_WinForPlayer1_When_4_0()
+    {
+        var calculator = new TennisScoreCalculator();
+        var result = calculator.Score(4, 0);
+        Assert.Equal("Win for Player 1", result);
+    }
 }
 
 public class TennisScoreCalculator
