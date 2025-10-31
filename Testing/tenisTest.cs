@@ -42,6 +42,14 @@ public class TennisScoreCalculatorTests
         var result = calculator.Score(3, 0);
         Assert.Equal("Forty-Love", result);
     }
+
+    [Fact]
+    public void Score_Should_Return_Deuce_When_3_3()
+    {
+        var calculator = new TennisScoreCalculator();
+        var result = calculator.Score(3, 3);
+        Assert.Equal("Deuce", result);
+    }
 }
 
 public class TennisScoreCalculator
@@ -71,6 +79,11 @@ public class TennisScoreCalculator
         if (player1Points == 3 && player2Points == 0)
         {
             return "Forty-Love";
+        }
+
+        if (player1Points == 3 && player2Points == 3)
+        {
+            return "Deuce";
         }
 
         return string.Empty;
