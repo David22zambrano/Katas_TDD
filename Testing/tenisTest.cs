@@ -26,6 +26,14 @@ public class TennisScoreCalculatorTests
         var result = calculator.Score(0, 1);
         Assert.Equal("Love-Fifteen", result);
     }
+
+    [Fact]
+    public void Score_Should_Return_ThirtyFifteen_When_2_1()
+    {
+        var calculator = new TennisScoreCalculator();
+        var result = calculator.Score(2, 1);
+        Assert.Equal("Thirty-Fifteen", result);
+    }
 }
 
 public class TennisScoreCalculator
