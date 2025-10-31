@@ -62,43 +62,38 @@ public class TennisScoreCalculatorTests
 
 public class TennisScoreCalculator
 {
+    private readonly string[] scoreNames = { "Love", "Fifteen", "Thirty", "Forty" };
+
     public string Score(int player1Points, int player2Points)
     {
-        if (player1Points == 0 && player2Points == 0)
+        // Caso 1: eL jugador gna ( diferencia de al menos puntos 2)
+        if (player1Points >= 4 || player2Points >= 4)
         {
-            return "Love-All";
+            int difference = player1Points - player2Points;
+
+            if (difference >= 2)
+                return "Win for Player 1";
+            if (difference <= -2)
+                return "Win for Player 2";
+            if (difference == 1)
+                return "Advantage Player 1";
+            if (difference == -1)
+                return "Advantage Player 2";
         }
 
-        if (player1Points == 1 && player2Points == 0)
-        {
-            return "Fifteen-Love";
-        }
-
-        if (player1Points == 0 && player2Points == 1)
-        {
-            return "Love-Fifteen";
-        }
-
-        if (player1Points == 2 && player2Points == 1)
-        {
-            return "Thirty-Fifteen";
-        }
-
-        if (player1Points == 3 && player2Points == 0)
-        {
-            return "Forty-Love";
-        }
-
-        if (player1Points == 3 && player2Points == 3)
+        // Caso 2: Deuce (ambos tienen el mismo numero de pubntos  están empatados)
+        if (player1Points >= 3 && player2Points >= 3 && player1Points == player2Points)
         {
             return "Deuce";
         }
 
-        if (player1Points == 4 && player2Points == 0)
+        // Caso 3: Empate (ambos tienen la misma puntuación < 3)
+        if (player1Points == player2Points)
         {
-            return "Win for Player 1";
+            return $"{scoreNames[player1Points]}-All";
         }
 
-        return string.Empty;
+        // Caso 4: Puntuación normal (diferente puntuación)
+        return $"{scoreNames[player1Points]}-{scoreNames[player2Points]}";
     }
 }
