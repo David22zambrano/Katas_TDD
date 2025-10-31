@@ -24,6 +24,16 @@ namespace Testing;
   {
       public string Score(int player1Points, int player2Points)
       {
-          return "Love-All";
+          if (player1Points == 0 && player2Points == 0)
+          {
+              return "Love-All";
+          }
+
+          if (player1Points == 1 && player2Points == 0)
+          {
+              return "Fifteen-Love";
+          }
+
+          return string.Empty;
       }
   }
